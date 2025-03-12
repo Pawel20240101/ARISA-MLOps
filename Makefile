@@ -2,7 +2,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-PROJECT_NAME = ARISA_MLOps
+PROJECT_NAME = titanic_survival_classification
 PYTHON_VERSION = 3.11
 PYTHON_INTERPRETER = python
 
