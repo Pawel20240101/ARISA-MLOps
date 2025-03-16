@@ -10,7 +10,6 @@ PYTHON_INTERPRETER = python
 # COMMANDS                                                                      #
 #################################################################################
 
-
 ## Install Python Dependencies
 .PHONY: requirements
 requirements:
@@ -33,7 +32,6 @@ lint:
 format:
 	black --config pyproject.toml ARISA_DSML
 
-
 .PHONY: preprocess
 preprocess:
 	python -m ARISA_DSML.preproc
@@ -46,8 +44,6 @@ train:
 # PROJECT RULES                                                                 #
 #################################################################################
 
-
-
 #################################################################################
 # Self Documenting Commands                                                     #
 #################################################################################
@@ -59,9 +55,9 @@ import re, sys; \
 lines = '\n'.join([line for line in sys.stdin]); \
 matches = re.findall(r'\n## (.*)\n[\s\S]+?\n([a-zA-Z_-]+):', lines); \
 print('Available rules:\n'); \
-print('\n'.join(['{:25}{}'.format(*reversed(match)) for match in matches]))
+print('\n'.join('  %-20s %s' % (name, desc) for desc, name in matches))
 endef
 export PRINT_HELP_PYSCRIPT
 
 help:
-	@$(PYTHON_INTERPRETER) -c "${PRINT_HELP_PYSCRIPT}" < $(MAKEFILE_LIST)
+	@$(PYTHON_INTERPRETER) -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
