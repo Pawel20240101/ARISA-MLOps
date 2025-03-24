@@ -1,0 +1,15 @@
+artifact_uri: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/451349359293173143/ca0b2191734a4c5dae5b1659f10ca623/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '451349359293173143'
+lifecycle_stage: active
+run_id: ca0b2191734a4c5dae5b1659f10ca623
+run_name: handsome-chimp-512
+run_uuid: ca0b2191734a4c5dae5b1659f10ca623
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742830158297
+status: 1
+tags: []
+user_id: vscode

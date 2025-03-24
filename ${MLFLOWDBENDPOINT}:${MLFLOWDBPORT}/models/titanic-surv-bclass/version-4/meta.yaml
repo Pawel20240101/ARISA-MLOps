@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1742830161576
+current_stage: None
+description: null
+last_updated_timestamp: 1742830161576
+name: titanic-surv-bclass
+run_id: ca0b2191734a4c5dae5b1659f10ca623
+run_link: null
+source: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/451349359293173143/ca0b2191734a4c5dae5b1659f10ca623/artifacts/model
+status: READY
+status_message: null
+storage_location: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/451349359293173143/ca0b2191734a4c5dae5b1659f10ca623/artifacts/model
+user_id: null
+version: 4

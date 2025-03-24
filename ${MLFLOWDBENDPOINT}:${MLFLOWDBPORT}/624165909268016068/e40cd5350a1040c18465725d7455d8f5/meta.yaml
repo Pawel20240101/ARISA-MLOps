@@ -1,5 +1,5 @@
 artifact_uri: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/624165909268016068/e40cd5350a1040c18465725d7455d8f5/artifacts
-end_time: null
+end_time: 1742829717505
 entry_point_name: ''
 experiment_id: '624165909268016068'
 lifecycle_stage: active
@@ -10,6 +10,6 @@ source_name: ''
 source_type: 4
 source_version: ''
 start_time: 1742825320072
-status: 1
+status: 4
 tags: []
 user_id: vscode

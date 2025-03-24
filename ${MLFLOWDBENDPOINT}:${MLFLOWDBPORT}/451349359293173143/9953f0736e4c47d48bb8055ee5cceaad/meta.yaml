@@ -1,0 +1,15 @@
+artifact_uri: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/451349359293173143/9953f0736e4c47d48bb8055ee5cceaad/artifacts
+end_time: 1742829889188
+entry_point_name: ''
+experiment_id: '451349359293173143'
+lifecycle_stage: active
+run_id: 9953f0736e4c47d48bb8055ee5cceaad
+run_name: sassy-owl-294
+run_uuid: 9953f0736e4c47d48bb8055ee5cceaad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742829888019
+status: 4
+tags: []
+user_id: vscode
