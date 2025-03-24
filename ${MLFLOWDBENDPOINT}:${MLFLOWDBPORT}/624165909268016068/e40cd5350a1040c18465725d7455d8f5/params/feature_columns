@@ -1,0 +1,3 @@
+Index(['PassengerId', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare',
+       'Embarked', 'Title', 'Deck', 'CabinNumber'],
+      dtype='object')

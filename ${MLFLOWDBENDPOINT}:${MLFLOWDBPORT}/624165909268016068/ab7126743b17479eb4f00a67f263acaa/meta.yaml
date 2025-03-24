@@ -1,0 +1,15 @@
+artifact_uri: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/624165909268016068/ab7126743b17479eb4f00a67f263acaa/artifacts
+end_time: 1742825254167
+entry_point_name: ''
+experiment_id: '624165909268016068'
+lifecycle_stage: active
+run_id: ab7126743b17479eb4f00a67f263acaa
+run_name: dapper-newt-152
+run_uuid: ab7126743b17479eb4f00a67f263acaa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742824405821
+status: 4
+tags: []
+user_id: vscode

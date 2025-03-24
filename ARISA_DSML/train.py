@@ -12,6 +12,12 @@ import plotly.graph_objects as go
 from sklearn.metrics import f1_score, log_loss
 from sklearn.model_selection import train_test_split
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 from ARISA_DSML.config import (
     FIGURES_DIR,
     MODEL_NAME,
@@ -22,7 +28,7 @@ from ARISA_DSML.config import (
 )
 from ARISA_DSML.helpers import get_git_commit_hash
 
-
+# test retrain2
 # comment to trigger workflow ver4
 
 def run_hyperopt(X_train:pd.DataFrame, y_train:pd.DataFrame, categorical_indices:list[int], test_size:float=0.25, n_trials:int=20, overwrite:bool=False)->str|Path:  # noqa: PLR0913
