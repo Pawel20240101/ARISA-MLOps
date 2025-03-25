@@ -12,6 +12,12 @@ import plotly.graph_objects as go
 from sklearn.metrics import f1_score, log_loss
 from sklearn.model_selection import train_test_split
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 from ARISA_DSML.config import (
     FIGURES_DIR,
     MODEL_NAME,
@@ -22,7 +28,7 @@ from ARISA_DSML.config import (
 )
 from ARISA_DSML.helpers import get_git_commit_hash
 
-
+# test retrain2
 # comment to trigger workflow ver4
 
 def run_hyperopt(X_train:pd.DataFrame, y_train:pd.DataFrame, categorical_indices:list[int], test_size:float=0.25, n_trials:int=20, overwrite:bool=False)->str|Path:  # noqa: PLR0913
@@ -104,6 +110,7 @@ def train(X_train:pd.DataFrame, y_train:pd.DataFrame, categorical_indices:list[i
     if params is None:
         logger.info("Training model without tuned hyperparameters")
         params = {}
+    #with mlflow.start_run(nested=True): # zmiana na nested=True
     with mlflow.start_run():
         params["ignored_features"] = [0]
 
@@ -187,7 +194,10 @@ def plot_error_scatter(  # noqa: PLR0913
     )->None:
     """Plot plotly scatter plots with error areas."""
     # Create figure
-    fig = go.Figure()
+    fig = go.Figure() # zmiana na inne PZ
+    #mlflow.log_figure(fig, "wykres.png")
+    #fig.write_image(FIGURES_DIR / f"{y}_vs_{x}.png")
+    #mlflow.log_figure(fig, f"{y}_vs_{x}.png")
 
     if not len(name):
         name = y
@@ -286,15 +296,16 @@ if __name__=="__main__":
     X_train = df_train
 
     categorical_indices = [X_train.columns.get_loc(col) for col in categorical if col in X_train.columns]
-    experiment_id = get_or_create_experiment("titanic_hyperparam_tuning")
+    experiment_id = get_or_create_experiment("titanic_hyperparam_tuning_PZ")
     mlflow.set_experiment(experiment_id=experiment_id)
     best_params_path = run_hyperopt(X_train, y_train, categorical_indices)
     params = joblib.load(best_params_path)
     cv_output_path = train_cv(X_train, y_train, categorical_indices, params)
     cv_results = pd.read_csv(cv_output_path)
 
-    experiment_id = get_or_create_experiment("titanic_full_training")
+    experiment_id = get_or_create_experiment("titanic_full_training_PZ")
     mlflow.set_experiment(experiment_id=experiment_id)
+    #mlflow.set_experiment("titanic_full_training") #- Zmiana dla MLFlow
     model_path, model_params_path = train(X_train, y_train, categorical_indices, params, cv_results=cv_results)
 
     cv_results = pd.read_csv(cv_output_path)

@@ -1,0 +1,6 @@
+artifact_location: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/213657157258910253
+creation_time: 1742824009534
+experiment_id: '213657157258910253'
+last_update_time: 1742824009534
+lifecycle_stage: active
+name: titanic_hyperparam_tuning

@@ -1,0 +1,35 @@
+artifact_path: model
+flavors:
+  catboost:
+    catboost_version: 1.2.7
+    code: null
+    data: model.cb
+    model_type: CatBoostClassifier
+    save_format: cbm
+  python_function:
+    data: model.cb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.catboost
+    python_version: 3.11.11
+mlflow_version: 2.12.1
+model_size_bytes: 87234
+model_uuid: 39513863680e459ca2789f4fd2b31770
+run_id: 61dcddf703494b98a0f81da8f5900ac3
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "PassengerId", "required": true}, {"type": "long",
+    "name": "Pclass", "required": true}, {"type": "string", "name": "Sex", "required":
+    true}, {"type": "double", "name": "Age", "required": true}, {"type": "long", "name":
+    "SibSp", "required": true}, {"type": "long", "name": "Parch", "required": true},
+    {"type": "double", "name": "Fare", "required": true}, {"type": "string", "name":
+    "Embarked", "required": true}, {"type": "string", "name": "Title", "required":
+    true}, {"type": "string", "name": "Deck", "required": true}, {"type": "long",
+    "name": "CabinNumber", "required": true}]'
+  outputs: '[{"type": "long", "required": true}]'
+  params: null
+utc_time_created: '2025-03-24 14:07:37.764868'

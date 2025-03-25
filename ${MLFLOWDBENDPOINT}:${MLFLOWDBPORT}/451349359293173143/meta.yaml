@@ -1,0 +1,6 @@
+artifact_location: /workspaces/ARISA-MLOps/${MLFLOWDBENDPOINT}:${MLFLOWDBPORT}/451349359293173143
+creation_time: 1742829719725
+experiment_id: '451349359293173143'
+last_update_time: 1742829719725
+lifecycle_stage: active
+name: titanic_exp1
