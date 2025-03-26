@@ -14,9 +14,7 @@ from sklearn.model_selection import train_test_split
 
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 
 from ARISA_DSML.config import (
     FIGURES_DIR,
@@ -191,7 +189,8 @@ def plot_error_scatter(  # noqa: PLR0913
         xtitle:str="",
         ytitle:str="",
         yaxis_range:list[float]|None=None,
-    )->None:
+    #)->None: # zmiana
+    )->go.Figure:
     """Plot plotly scatter plots with error areas."""
     # Create figure
     fig = go.Figure() # zmiana na inne PZ
@@ -212,9 +211,12 @@ def plot_error_scatter(  # noqa: PLR0913
     # Add shaded error region
     fig.add_trace(
         go.Scatter(
-            x=pd.concat([df_plot[y], df_plot[x][::-1]]),
-            y=pd.concat([df_plot[y]+df_plot[err],
-                         df_plot[y]-df_plot[err]]),
+            #x=pd.concat([df_plot[y], df_plot[x][::-1]]),
+            #y=pd.concat([df_plot[y]+df_plot[err],
+            #             df_plot[y]-df_plot[err]]),
+            x=pd.concat([df_plot[x], df_plot[x][::-1]]),
+            y=pd.concat([df_plot[y] + df_plot[err],
+                        df_plot[y] - df_plot[err][::-1]]),
             fill="toself",
             fillcolor="rgba(0, 0, 255, 0.2)",
             line={"color":"rgba(255, 255, 255, 0)"},
@@ -235,7 +237,7 @@ def plot_error_scatter(  # noqa: PLR0913
             yaxis={"range": yaxis_range},
         )
 
-    fig.show()
+    # fig.show()  # Nie wywołujemy w środowisku CLI – może zawiesić proces
     fig.write_image(FIGURES_DIR / f"{y}_vs_{x}.png")
     return fig
 
@@ -308,4 +310,4 @@ if __name__=="__main__":
     #mlflow.set_experiment("titanic_full_training") #- Zmiana dla MLFlow
     model_path, model_params_path = train(X_train, y_train, categorical_indices, params, cv_results=cv_results)
 
-    cv_results = pd.read_csv(cv_output_path)
+    #cv_results = pd.read_csv(cv_output_path)
